@@ -13,7 +13,7 @@ const AppRoutes = () => {
         <Route path="/Cart" element={<Cart />} />
         <Route path="/Category/:name" element={<CategoryInfor />} />
         <Route path="*" element={<NotFound />} /> */}
-        <Route path="/Cozastore" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

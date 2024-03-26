@@ -1,9 +1,13 @@
 import React from "react";
 import { Card } from "./Style";
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 
 const CategoryCard = () => {
+
+  const listCategory = useSelector(state => state.categories.data);
+  const isLoading = useSelector(state => state.categories.isLoading);
+
   return (
     <>
       <Card>

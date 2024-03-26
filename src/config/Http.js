@@ -1,5 +1,5 @@
 import axios from "axios";
-import Store from "../redux/Store";
+//import Store from "../redux/Store";
 
 const Http = axios.create({
   baseURL: `http://localhost:9000`,
@@ -8,10 +8,10 @@ const Http = axios.create({
 
 Http.interceptors.request.use(
   function (request) {
-    const token = Store.getState().auth.accessToken;
-    if (token) {
-      request.headers.Authorization = `Bearer ${token}`;
-    }
+    // const token = Store.getState().auth.accessToken;
+    // if (token) {
+    //   request.headers.Authorization = `Bearer ${token}`;
+    // }
     return request;
   },
   function (error) {

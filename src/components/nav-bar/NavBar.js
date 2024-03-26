@@ -25,7 +25,7 @@ const NavBar = () => {
       <Header className={CheckScroll ? "background" : ""}>
         <div className="container">
           <Logo>
-            <Link to="/CozaStore">
+            <Link to="/">
               <img
                 src={`${themetoggle
                   ? "https://omarabualhija.github.io/CozaStore/images/icons/logo-02.png"
@@ -37,7 +37,7 @@ const NavBar = () => {
           </Logo>
 
           <Bar className={!ToggleNav ? "toggle" : ""}>
-            <NavLink onClick={() => setToggleNav(!ToggleNav)} to="/CozaStore">
+            <NavLink onClick={() => setToggleNav(!ToggleNav)} to="/">
               Home
             </NavLink>
             <NavLink
@@ -61,11 +61,13 @@ const NavBar = () => {
           </Bar>
 
           <ShopIcons>
-            <div>
-              <i
-                onClick={() => dispatchtheme(themeAction())}
-                className={themetoggle ? 'fa-solid fa-sun' : 'fa-solid fa-moon'}></i>
-            </div>
+            <div
+              onClick={() => {
+                  console.log(themeAction());
+                  dispatchtheme(themeAction());
+              }}
+              className={themetoggle ? 'fa-solid fa-sun' : 'fa-solid fa-moon'}
+            ></div>
             <Link
               to="/CozaStore/CheckOut"
               className="fas fa-shopping-cart"
