@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { dark, light } from "./shared/Theme";
+import { GlobelStyle } from "./shared/Theme";
+import { ThemeProvider } from 'styled-components';
+import { useSelector } from "react-redux";
+import NavBar from './components/nav-bar/NavBar';
+import Footer from './components/footer/Footer';
+import AppRoutes from './routes/AppRoutes';
+
 
 function App() {
+
+  const themeToggle = useSelector((state) => state.theme);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider theme={!themeToggle ? light : dark}>
+        <GlobelStyle />
+        <div className="App">
+          <NavBar />
+          <AppRoutes />
+          <Footer />
+        </div>
+      </ThemeProvider>
+    </>
   );
 }
 
