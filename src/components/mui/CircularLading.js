@@ -1,7 +1,8 @@
 import * as React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 
-export function CircularLading(props) {
+const CircularLading = () => {
+
   const style = {
     height: "500px",
     display: "flex",
@@ -10,8 +11,12 @@ export function CircularLading(props) {
   };
 
   return (
-    <div style={style} className="container">
-      <CircularProgress />
-    </div>
-  );
+    <>
+      <div style={style} className="container">
+        <CircularProgress />
+      </div>
+    </>
+  )
 }
+
+export default CircularLading;

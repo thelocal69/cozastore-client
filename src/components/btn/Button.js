@@ -3,14 +3,17 @@ import { Wraper } from "./Style";
 
 import CircularProgress from "@mui/material/CircularProgress";
 
-export const Button = ({
-  type = "button",
-  value = "Click ",
-  customClass = "",
-  onClick,
-  disabled = false,
-  to = "#",
-}) => {
+const Button = (props) => {
+
+  const {
+    type = "button",
+    value = "Click ",
+    customClass = "",
+    onClick,
+    disabled = false,
+    to = "#",
+  } = props;
+
   return (
     <Wraper>
       {disabled ? (
@@ -27,3 +30,5 @@ export const Button = ({
     </Wraper>
   );
 };
+
+export default Button;

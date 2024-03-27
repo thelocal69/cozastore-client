@@ -42,19 +42,25 @@ const NavBar = () => {
             </NavLink>
             <NavLink
               onClick={() => setToggleNav(!ToggleNav)}
-              to="/CozaStore/Shop"
+              to="/Shop"
             >
               Shop
             </NavLink>
             <NavLink
               onClick={() => setToggleNav(!ToggleNav)}
-              to="/CozaStore/About"
+              to="/About"
             >
               About
             </NavLink>
             <NavLink
               onClick={() => setToggleNav(!ToggleNav)}
-              to="/CozaStore/Contact"
+              to="/Blog"
+            >
+              Blog
+            </NavLink>
+            <NavLink
+              onClick={() => setToggleNav(!ToggleNav)}
+              to="/Contact"
             >
               Contact
             </NavLink>

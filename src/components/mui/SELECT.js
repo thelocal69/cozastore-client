@@ -6,16 +6,19 @@ import Select from "@mui/material/Select";
 import Box from "@mui/material/Box";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useSelector } from "react-redux";
-import { darck, light } from "../../shared/Theme";
+import { dark, light } from "../../shared/Theme";
 import { mainColor } from "../../shared/Theme";
-export function SELECT({ returnVal, label, options }) {
+
+const SELECT = (props) => {
+
+  const { returnVal, label, options } = props;
   const themeToggel = useSelector((state) => state.theme);
 
   const theme = createTheme({
     backgroundColor: themeToggel
-      ? darck.backgroundColor
+      ? dark.backgroundColor
       : light.backgroundColor,
-    color: themeToggel ? darck.color : light.color,
+    color: themeToggel ? dark.color : light.color,
     border: `1px solid  ${mainColor.purple}`,
     outlineColor: `${mainColor.purple}`,
     palette: {
@@ -31,25 +34,29 @@ export function SELECT({ returnVal, label, options }) {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Box>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">{label}</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={value}
-            label={"label"}
-            onChange={handleChange}
-          >
-            {options.map((el, index) => (
-              <MenuItem key={index} value={el}>
-                {el}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </Box>
-    </ThemeProvider>
-  );
+    <>
+      <ThemeProvider theme={theme}>
+        <Box>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={value}
+              label={"label"}
+              onChange={handleChange}
+            >
+              {options.map((el, index) => (
+                <MenuItem key={index} value={el}>
+                  {el}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Box>
+      </ThemeProvider>
+    </>
+  )
 }
+
+export default SELECT;

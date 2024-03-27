@@ -6,9 +6,9 @@ import Product from '../../components/product/Product';
 const Home = () => {
   return (
     <>
-    <Slider />
-    <CategoryCard />
-    <Product />
+      <Slider />
+      <CategoryCard />
+      <Product />
     </>
   )
 }

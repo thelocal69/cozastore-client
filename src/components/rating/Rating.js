@@ -1,7 +1,10 @@
 import React from "react";
 import { Rate } from "./Style";
 
-const Rating = ({ rating: { rate, count } }) => {
+const Rating = (props) => {
+
+    const { rate, count } = props;
+
     return (
         <>
             <Rate>
