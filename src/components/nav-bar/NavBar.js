@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link, NavLink } from "react-router-dom";
-import { Header, Logo, Bar, ShopIcons } from "./Style";
+import { Header, Logo, Bar, ShopIcons, LoginButton, ModalStyle } from "./Style";
 import { useSelector, useDispatch } from "react-redux";
 import { themeAction } from "../../redux/actions/Actions";
-
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Login from '../account/Login';
 
 const NavBar = () => {
 
   const [ToggleNav, setToggleNav] = React.useState(false);
   const [CheckScroll, setCheckScroll] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
   const themetoggle = useSelector((state) => state.theme);
   const dispatchtheme = useDispatch();
   const changeColor = () => {
@@ -19,6 +22,27 @@ const NavBar = () => {
     }
   };
   window.addEventListener("scroll", changeColor);
+
+  const handleOpen = () => {
+    setOpen(true);
+  }
+
+
+  const handleClose = () => {
+    setOpen(false);
+  }
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 
   return (
     <>
@@ -69,8 +93,8 @@ const NavBar = () => {
           <ShopIcons>
             <div
               onClick={() => {
-                  console.log(themeAction());
-                  dispatchtheme(themeAction());
+                console.log(themeAction());
+                dispatchtheme(themeAction());
               }}
               className={themetoggle ? 'fa-solid fa-sun' : 'fa-solid fa-moon'}
             ></div>
@@ -80,12 +104,28 @@ const NavBar = () => {
             ></Link>
             <div className="far fa-heart"></div>
             <div
+            className='fa-solid fa-user'
+            onClick={handleOpen}
+            >
+            </div>
+            <div
               onClick={() => setToggleNav(!ToggleNav)}
               className={!ToggleNav ? "fas fa-bars" : "fas fa-times fa-xl"}
             ></div>
           </ShopIcons>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box component={ModalStyle}>
+                <Login />
+              </Box>
+            </Modal>
         </div>
       </Header>
+
     </>
   )
 }

@@ -9,6 +9,8 @@ import Footer from './components/footer/Footer';
 import AppRoutes from './routes/AppRoutes';
 import { getCategories } from "./redux/actions/Actions";
 import { useDispatch } from "react-redux";
+import { StyledEngineProvider } from '@mui/material/styles';
+
 
 
 function App() {
@@ -22,14 +24,16 @@ function App() {
 
   return (
     <>
+    <StyledEngineProvider injectFirst>
       <ThemeProvider theme={!themeToggle ? light : dark}>
-        <GlobelStyle />
-        <div className="App">
-          <NavBar />
-          <AppRoutes />
-          <Footer />
-        </div>
+          <GlobelStyle />
+          <div className="App">
+            <NavBar />
+            <AppRoutes />
+            <Footer />
+          </div>
       </ThemeProvider>
+    </StyledEngineProvider>
     </>
   );
 }

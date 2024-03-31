@@ -90,3 +90,23 @@ export const ShopIcons = styled.div`
     }
   }
 `;
+
+export const ModalStyle = styled.div`
+position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;  
+  background-color: ${({ theme }) => theme.backgroundColor};
+  border: 2px solid #000;
+  box-shadow: 24;
+  p: 4;
+  @media (max-width: 575px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 30%;
+  }
+`;
